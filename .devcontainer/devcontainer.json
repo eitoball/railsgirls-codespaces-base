@@ -1,0 +1,26 @@
+{
+  "name": "Rails Girls",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "lts"
+    }
+  },
+  "forwardPorts": [3000],
+  "portsAttributes": {
+    "3000": {
+      "label": "Rails Server",
+      "onAutoForward": "notify"
+    }
+  },
+  "postCreateCommand": "gem install rails --no-document && echo '-m /workspaces/${localWorkspaceFolderBasename}/template.rb' > ~/.railsrc && echo 'Setup complete!'",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "Shopify.ruby-lsp"
+      ]
+    }
+  }
+}
